@@ -18,18 +18,17 @@ def count_occurences_and_obtain_ascii(text, setted_text):
 def obtain_prime_chars(occurences):
     primes = {}
     for key, value in occurences.items():
-        n = obtain_prime(value[0])
-        if 0 <= n <= 1:
+        if obtain_prime(value[0]):
             primes[key] = value
     return primes
 
 def obtain_prime(number):
-    divisors = 0
     if number % 2 == 0:
-        return 900
-    for num in range(1, int(sqrt(number))):
-        divisors += 1 if number % num == 0 else 0
-    return divisors
+        return False
+    for num in range(3, int(number/2)):
+        if number % num == 0:
+            return False
+    return True
 
 def calc_prices(primes):
     prices = {}
@@ -38,7 +37,7 @@ def calc_prices(primes):
     return prices
 
 def obtain_price(code, occurence):
-    return round(code/1000 * float(occurence), 3)
+    return round( (code/1000) * float(occurence), 3)
 
 def print_results(prices):
     total = 0.0
