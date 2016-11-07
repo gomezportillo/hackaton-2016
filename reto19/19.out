@@ -1,0 +1,25 @@
+{
+  "glossary": {
+    "GlossDiv": {
+      "GlossList": {
+        "GlossEntry": {
+          "ID": "SGML",
+          "GlossSee": "markup",
+          "SortAs": "SGML",
+          "GlossDef": {
+            "GlossSeeAlso": [
+              "GML",
+              "XML"
+            ],
+            "para": "A meta-markup language, used to create markup languages such as DocBook."
+          },
+          "Acronym": "SGML",
+          "GlossTerm": "Standard Generalized Markup Language",
+          "Abbrev": "ISO 8879:1986"
+        }
+      },
+      "title": "S"
+    },
+    "title": "example glossary"
+  }
+}
