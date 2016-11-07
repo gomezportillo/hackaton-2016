@@ -1,8 +1,7 @@
-from math import sqrt
+from math import sqrt, ceil
 
 def split_text(text):
     text_without_spaces = text.replace(" ", "")
-    # print(text_without_spaces)
     return text_without_spaces
 
 def set_text(text):
@@ -25,6 +24,8 @@ def obtain_prime_chars(occurences):
 def obtain_prime(number):
     if number == 1:
         return False
+    if number == 2:
+        return True
     if number % 2 == 0:
         return False
     for num in range(3, int(number/2)):
@@ -54,8 +55,8 @@ def print_results(prices):
     elems = order_dict(prices)
     for value in elems:
         total += value[2]
-        print("{} {} {}€".format(value[0], value[1], value[2]))
-    print("Coste total: {}€".format(total))
+        print("{} {} {}€".format(value[0], value[1], ord(value[0]) / 1000))
+    print("Coste total: {}€".format(ceil(total * 100) / 100))
 
 
 file = open("02.in", 'r')
