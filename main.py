@@ -23,21 +23,19 @@ def array_to_str(password):
 
 def try_index(index, best_result):
     last_result = 0
-    for number in range(1, 10): #del 1 al 9 primo
+    for number in xrange(1, 10):
         password[index] = number
         last_result = execute_jar()
 
         if last_result > best_result:
             return last_result
 
-# Redirecting stdout to var
 def main():
-    index = 0
     best_result = 0
 
-    print "Decypting... it may take a seconds, please wait"
+    print "Decypting... it may take a seconds, wait primo"
 
-    for i in range(0, len(password)):
+    for i in xrange(0, len(password)):
         best_result = try_index(i, best_result)
         print array_to_str(password)
 
