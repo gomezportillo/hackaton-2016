@@ -23,6 +23,8 @@ def obtain_prime_chars(occurences):
     return primes
 
 def obtain_prime(number):
+    if number == 1:
+        return False
     if number % 2 == 0:
         return False
     for num in range(3, int(number/2)):
@@ -39,11 +41,20 @@ def calc_prices(primes):
 def obtain_price(code, occurence):
     return round( (code/1000) * float(occurence), 3)
 
+
+def order_dict(prices):
+    elems = []
+    for key, value in prices.items():
+        elems.append((key, value[0], value[1]))
+    return sorted(elems, key= lambda x: x[1], reverse=True)
+
+
 def print_results(prices):
     total = 0.0
-    for key, value in prices.items():
-        total += value[1]
-        print("{} {} {}€".format(key, value[0], value[1]))
+    elems = order_dict(prices)
+    for value in elems:
+        total += value[2]
+        print("{} {} {}€".format(value[0], value[1], value[2]))
     print("Coste total: {}€".format(total))
 
 
